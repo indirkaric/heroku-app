@@ -1,0 +1,37 @@
+app:
+  version: 1.0.0
+spring:
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    driver-class-name: org.postgresql.Driver
+    platform: postgres
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    generate-ddl: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  flyway:
+    user: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    url: jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    locations: classpath:db/migration
+    enabled: true
+    check-location: true
+    baseline-on-migrate: false
+logging:
+  level:
+    net:
+      ttddyy:
+        dsproxy:
+          listener: debug
