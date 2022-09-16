@@ -11,6 +11,6 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
 
-    @Query(value = "Select * from users", nativeQuery = true)
+    @Query(value = "Select * from users where is_active = true", nativeQuery = true)
     List<User> findAllUsers();
 }
