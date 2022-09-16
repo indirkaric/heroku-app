@@ -21,4 +21,5 @@ public class User {
     private String firstName;
     private String lastName;
     private String organisation;
+    private boolean isActive = true;
 }
