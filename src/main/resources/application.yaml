@@ -2,7 +2,7 @@ app:
   version: 1.0.0
 spring:
   server:
-    port: ${8082:PORT}
+    port: ${PORT}
   datasource:
     url: jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
     driver-class-name: org.postgresql.Driver
